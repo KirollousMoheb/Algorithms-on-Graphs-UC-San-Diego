@@ -30,7 +30,7 @@ int distance(vector<vector<int> >& adj, int s, int t) {//s is the source vertix 
 
             }
             //after we have updated the distance of all the vertices of the origin vertix
-            //we will go again to the top of the while loop and store on of these level 1 vertices into 'u' and start all over again
+            //we will go again to the top of the while loop and store one of these level 1 vertices into 'u' and start all over again
             //it doesn't matter which vertix is poped out and stored in 'u' as they will be of the same level
         }
     }
