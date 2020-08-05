@@ -17,7 +17,7 @@ int distance(vector<vector<int> >& adj, int s, int t) {//s is the source vertix 
     //The queue is empty when all the vertices are processed
     while (!Q.empty())//while they are not
     {
-        int u = Q.front();//we get the vertix ti be processed from the queue
+        int u = Q.front();//we get the vertix to be processed from the queue
         Q.pop();//and remove it from it
         for (int v : adj[u])//for loop itterate about the vertices reachable from vertix u extracted from the queue
             //all these vertices are present in the row vector corresponding to this vertix present in the 2D vector "adj"
@@ -25,13 +25,13 @@ int distance(vector<vector<int> >& adj, int s, int t) {//s is the source vertix 
             if (dist[v]==INT_MAX)//if we didn't update the distance
             {
                 Q.push(v);//push this vertix into the queue
-                dist[v] = dist[u] + 1;//and increment the parent's vertix distance by 1
+                dist[v] = dist[u] + 1;//and increment the parent's vertix distance by 1 and assign this value to the new vertix reached from vertix 'u'
                 //which in the start if it's the origin with distance 0 then will be 1
 
             }
             //after we have updated the distance of all the vertices of the origin vertix
-            //we will go again to the top of the while loop and store on of these level 1 vertices into u and start all over again
-            //it doesn't matter which vertix is poped out and stored in u as they will be of the same level
+            //we will go again to the top of the while loop and store on of these level 1 vertices into 'u' and start all over again
+            //it doesn't matter which vertix is poped out and stored in 'u' as they will be of the same level
         }
     }
     if (dist[t]==INT_MAX)//if the distance is maximum then there is no path to the "t" vertix
