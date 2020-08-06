@@ -14,6 +14,7 @@ int negative_cycle(vector<vector<int> >& adj, vector<vector<int> >& cost) {
     bool relax;
     for (int i = 0; i < adj.size(); i++)
     {
+        relax = false;
         for (int u = 0; u < adj.size(); u++)
         {
             for (int v = 0; v < adj[u].size(); v++)
