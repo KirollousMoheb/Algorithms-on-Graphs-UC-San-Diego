@@ -2,14 +2,8 @@
 #include <vector>
 #include <limits.h>
 using namespace std;
-int negative_cycle(vector<vector<int> >& adj, vector<vector<int> >& cost) {
-    vector<int>dist(adj.size());
-    vector<int>prev(adj.size());
-
-    for (int i = 0; i < adj.size(); i++)
-    {
-        dist[i] = INT_MAX;
-    }
+bool negative_cycle(vector<vector<int> >& adj, vector<vector<int> >& cost) {
+    vector<int>dist(adj.size(), 9999999999);
     dist[0] = 0;
     bool relax;
     for (int i = 0; i < adj.size(); i++)
@@ -19,10 +13,10 @@ int negative_cycle(vector<vector<int> >& adj, vector<vector<int> >& cost) {
         {
             for (int v = 0; v < adj[u].size(); v++)
             {
-                if (dist[u] + cost[u][v]<dist[adj[u][v]])
+                if ( dist[u] + cost[u][v] <  dist[adj[u][v]] )
                 {
                      dist[adj[u][v]] =dist[u] + cost[u][v];
-                    relax = true;
+                     relax = true;
                 }
             }
         }
